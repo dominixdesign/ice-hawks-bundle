@@ -1,0 +1,11 @@
+{
+  "transport": "ftp",
+  "hostname": "buron-joker.de",
+  "port": 21,
+  "username": "buronq_3",
+  "password": "aFQ574HsvF2WeMiN",
+  "target": "/src",
+  "watch": [
+    "/dominix/HolemaClientBundle"
+  ]
+}
