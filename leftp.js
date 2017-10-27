@@ -9,7 +9,7 @@ var x = new LEftp({
     "watchList":	[
                 {
                     "localRootDir"	: "dominix/HolemaClientBundle",
-                    "remoteRootDir"	: '/src'
+                    "remoteRootDir"	: '/src/dominix/HolemaClientBundle'
                 }
             ],
     // The following two parameters are depricated. Use watchList array instead
