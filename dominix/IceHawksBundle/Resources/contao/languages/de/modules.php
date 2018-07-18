@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the HolemaClientBundle.
+ * This file is part of the IceHawksBundle.
  *
  * (c) Dominik Sander <http://dominix-design.de>
  *
@@ -12,4 +12,4 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['cssStyleSelector'] = array('CSS styles', 'You can define CSS styles with predefined CSS classes here.');
+$GLOBALS['TL_LANG']['MOD']['ih_szene'] = array('Szene', 'Szene im Blick');

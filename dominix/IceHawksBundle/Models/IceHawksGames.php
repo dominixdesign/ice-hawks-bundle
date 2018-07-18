@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the HolemaClientBundle.
+ * This file is part of the IceHawksBundle.
  *
  * (c) Dominik Sander <http://dominix-design.de>
  *
@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace dominix\HolemaClientBundle\Models;
+namespace dominix\IceHawksBundle\Models;
 
 use Contao\Database;
 use Contao\Model;
 
-class HolemaGames extends Model
+class IceHawksGames extends Model
 {
 
     /**
      * Name of the table
      * @var string
      */
-    protected static $strTable = 'tl_holema_client_games';
+    protected static $strTable = 'tl_ice_hawks_games';
 
 }

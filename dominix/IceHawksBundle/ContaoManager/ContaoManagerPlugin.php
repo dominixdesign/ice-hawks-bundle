@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the HolemaClientBundle.
+ * This file is part of the IceHawksBundle.
  *
  * (c) Dominik Sander <http://dominix-design.de>
  *
@@ -27,9 +27,9 @@ class ContaoManagerPlugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('dominix\HolemaClientBundle\HolemaClientBundle')
+            BundleConfig::create('dominix\IceHawksBundle\IceHawksBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
-                ->setReplace(['holema-client-bundle']),
+                ->setReplace(['ice-hawks-bundle']),
         ];
     }
 }

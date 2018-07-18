@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the HolemaClientBundle Bundle.
+ * This file is part of the IceHawksBundle Bundle.
  *
  * (c) Dominik Sander <https://dominix-design.de>
  *
@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace dominix\HolemaClientBundle;
+namespace dominix\IceHawksBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Configures the HolemaClientBundle Bundle.
+ * Configures the IceHawksBundle Bundle.
  */
-class HolemaClientBundle extends Bundle
+class IceHawksBundle extends Bundle
 {
 }
