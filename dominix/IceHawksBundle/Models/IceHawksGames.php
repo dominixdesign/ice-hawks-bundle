@@ -21,6 +21,20 @@ class IceHawksGames extends Model
      * Name of the table
      * @var string
      */
-    protected static $strTable = 'tl_ice_hawks_games';
+    protected static $strTable = 'tl_ih_games';
 
+		public static function getSeasonOptions() {
+			$seasons = array();
+			$start = date('Y') - 5;
+			$end = date('Y');
+			for($i=$start; $i<=$end; $i++) {
+				$seasons[] = 'Saison '.$i.'/'.($i+1);
+			}
+			return $seasons;
+		}
+
+		public static function labels($row, $label, $dc, $args) {
+			$args[0] = date('d.m.Y',$args[0]);
+			return $args;
+		}
 }

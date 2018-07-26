@@ -37,9 +37,9 @@ $GLOBALS['TL_DCA']['tl_ih_games'] = array
         ),
         'label' => array
         (
-            'fields'                  => array('gamedate', 'game', 'result', 'fans'),
+            'fields'                  => array('gamedate', 'game', 'result', 'attendance'),
             'showColumns'             => true,
-						'label_callback'					=> array('dominix\\HolemaClientBundle\\Models\\HolemaStandings', 'findTeamsForDisplay')
+						'label_callback'					=> array('dominix\\IceHawksBundle\\Models\\IceHawksGames', 'labels')
         ),
         'global_operations' => array
         (
@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_ih_games'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => 'season,gamedate,game,result,attendance,awayfans,pictures'
+        'default' => '{game_data},season,gamedate,game,result;{szene_data},attendance,awayfans;{bilder},pictures'
     ),
     // Fields
     'fields'   => array
@@ -102,9 +102,9 @@ $GLOBALS['TL_DCA']['tl_ih_games'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'select',
-						'options'									=> array('Saison 2018/2019'),
+						'options_callback'			  => array('dominix\\IceHawksBundle\\Models\\IceHawksGames', 'getSeasonOptions'),
             'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_holema_client_games\')'),
-            'sql'                     => "varchar(20) unsigned NOT NULL default '0'"
+            'sql'                     => "varchar(20) NOT NULL default ''"
         ),
         'game' => array
         (
@@ -124,24 +124,6 @@ $GLOBALS['TL_DCA']['tl_ih_games'] = array
             'eval'                    => array('datepicker' => true, rgxp => 'date', 'mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "int(10) unsigned NOT NULL"
         ),
-        'attendance' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['attendance'],
-            'exclude'                 => true,
-            'search'                  => true,
-            'inputType'               => 'number',
-            'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25) NULL"
-        ),
-        'awayfans' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['awayfans'],
-            'exclude'                 => true,
-            'search'                  => true,
-            'inputType'               => 'number',
-            'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25) NULL"
-        ),
         'result' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['result'],
@@ -150,6 +132,37 @@ $GLOBALS['TL_DCA']['tl_ih_games'] = array
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => false, 'maxlength' => 50, 'tl_class' => 'w50'),
             'sql'                     => "varchar(50) NULL"
-        )
+        ),
+        'attendance' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['attendance'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "int(25) NULL"
+        ),
+        'awayfans' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['awayfans'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "int(25) NULL"
+        ),
+				'pictures' => array
+				(
+					'label'                   => &$GLOBALS['TL_LANG']['tl_ih_games']['pictures'],
+					'exclude'                 => true,
+					'inputType'               => 'fileTree',
+					'eval'                    => array('isGallery' => true, 'multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'mandatory'=>false, 'tl_class'=>'sortable sgallery'),
+					'sql'                     => "blob NULL"
+				),
+				'orderSRC' => array
+				(
+					'label'                   => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],
+					'sql'                     => "blob NULL"
+				)
     )
 );
