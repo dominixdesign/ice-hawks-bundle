@@ -33,6 +33,23 @@ class IceHawksGames extends Model
 			return $seasons;
 		}
 
+		public static function generateSeasonAlias($season) {
+			preg_match("/([0-9]{4})\/[0-9]{4}/", $season, $output_array);
+			return $output_array[1];
+		}
+
+		public static function generateSeasonByAlias($alias) {
+			return 'Saison '.$alias.'/'.($alias+1);
+		}
+
+		public function getExistingSeasonOptions() {
+			$objDatabase = Database::getInstance();
+			$res = $objDatabase->prepare("SELECT season FROM ".self::$strTable." GROUP BY season ORDER BY season DESC")->execute()->fetchAllAssoc();
+			return array_map(function($v) {
+				return $v['season'];
+			},$res);
+		}
+
 		public static function labels($row, $label, $dc, $args) {
 			$args[0] = date('d.m.Y',$args[0]);
 			return $args;

@@ -15,9 +15,14 @@
 $GLOBALS['TL_LANG']['tl_ih_games']['gamedate'] = array('Datum', 'Datum des Spiels.');
 $GLOBALS['TL_LANG']['tl_ih_games']['game'] = array('Begegnung', 'Begegnung');
 $GLOBALS['TL_LANG']['tl_ih_games']['result'] = array('Ergebnis', 'Ergebnis');
-$GLOBALS['TL_LANG']['tl_ih_games']['attendance'] = array('Zuschauer', 'Anzahl Zuschauer');
+$GLOBALS['TL_LANG']['tl_ih_games']['attendance'] = array('Gesamt Zuschauer', 'Anzahl Zuschauer');
 $GLOBALS['TL_LANG']['tl_ih_games']['awayfans'] = array('Gästefans', 'Anzahl Gästefans');
 $GLOBALS['TL_LANG']['tl_ih_games']['season'] = array('Saison', 'Saison');
+$GLOBALS['TL_LANG']['tl_ih_games']['game_data'] = 'Zum Spiel';
+$GLOBALS['TL_LANG']['tl_ih_games']['szene_data'] = 'Zuschauer';
+$GLOBALS['TL_LANG']['tl_ih_games']['bilder'] = 'Bilder';
+$GLOBALS['TL_LANG']['tl_ih_games']['season'] = array('Saison', 'Saison');
+$GLOBALS['TL_LANG']['tl_ih_games']['pictures'] = array(' ', 'Bilder vom Spiel');
 
 
 /**

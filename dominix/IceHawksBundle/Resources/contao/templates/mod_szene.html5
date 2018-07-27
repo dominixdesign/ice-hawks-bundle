@@ -1,0 +1,33 @@
+<?php $this->block('content'); ?>
+<div class="<?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+	<table>
+		<thead>
+			<tr>
+				<th>Datum</th>
+				<th>Begegnung</th>
+				<th>Ergebnis</th>
+				<th>Zuschauer</th>
+				<th>Gäste</th>
+			</tr>
+		</thead>
+		<tbody>
+	<?php foreach($this->games as $game): ?>
+			<tr>
+				<td><?= $game['gamedate']; ?></td>
+				<td><?= $game['game']; ?></td>
+				<td><?= $game['result']; ?></td>
+				<td><?= $game['attendance']; ?></td>
+				<td><?= $game['awayfans']; ?></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="4"><?php var_dump($game['images']) ?></td>
+			</tr>
+	<?php endforeach; ?>
+		<tbody>
+	</table>
+<?php
+//var_dump();
+?>
+</div>
+<?php $this->endblock(); ?>

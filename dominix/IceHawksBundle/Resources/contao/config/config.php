@@ -17,3 +17,6 @@ $GLOBALS['BE_MOD']['ice_hawks'] = array(
 );
 
 $GLOBALS['TL_MODELS']['tl_ih_games'] = '\dominix\IceHawksBundle\Models\IceHawksGames';
+
+$GLOBALS['FE_MOD']['holema']['ih_szene'] = '\dominix\IceHawksBundle\Modules\SzeneModule';
+$GLOBALS['FE_MOD']['holema']['ih_szene_nav'] = '\dominix\IceHawksBundle\Modules\SzeneNavigationModule';

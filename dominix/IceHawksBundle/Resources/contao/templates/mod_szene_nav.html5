@@ -1,0 +1,29 @@
+<?php $this->block('content'); ?>
+<div class="<?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+	<nav class="mod_navigation subnav block" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+	  <a href="szene/im-blick.html#skipNavigation41" class="invisible">Navigation überspringen</a>
+	  <ul class="vlist level_1">
+			<?php $first = true; ?>
+			<?php
+				foreach($this->seasons as $alias => $season):
+				$cssClasses = array();
+				if($first) {
+					$cssClasses[] = 'first';
+					$first = false;
+				} else {
+					$cssClasses[] = 'sibling';
+				}
+				if($season == $this->currentSeason) {
+					$cssClasses[] = 'active';
+					$cssClasses[] = 'mm-selected';
+				}
+			?>
+					<li class="mlist <?= implode(' ',$cssClasses) ?>">
+						<a href="szene/im-blick/<?= $alias ?>.html" title="<?= $season ?>" class="<?= implode(' ',$cssClasses) ?>"><i class="sibling"></i><?= $season ?></a>
+					</li>
+			<?php endforeach; ?>
+		</ul>
+	  <a id="skipNavigation41" class="invisible">&nbsp;</a>
+	</nav>
+</div>
+<?php $this->endblock(); ?>
