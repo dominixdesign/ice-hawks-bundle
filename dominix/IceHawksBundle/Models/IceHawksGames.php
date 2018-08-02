@@ -42,7 +42,7 @@ class IceHawksGames extends Model
 			return 'Saison '.$alias.'/'.($alias+1);
 		}
 
-		public function getExistingSeasonOptions() {
+		public static function getExistingSeasonOptions() {
 			$objDatabase = Database::getInstance();
 			$res = $objDatabase->prepare("SELECT season FROM ".self::$strTable." GROUP BY season ORDER BY season DESC")->execute()->fetchAllAssoc();
 			return array_map(function($v) {
