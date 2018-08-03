@@ -1,4 +1,5 @@
 <?php $this->block('content'); ?>
+<!--
 <div class="<?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
 	<table>
 		<thead>
@@ -13,7 +14,7 @@
 		<tbody>
 	<?php foreach($this->games as $game): ?>
 			<tr>
-				<td><?= $game['gamedate']; ?></td>
+				<td><?= $this->parseDate("d.m.Y", $game['gamedate']); ?></td>
 				<td><?= $game['game']; ?></td>
 				<td><?= $game['result']; ?></td>
 				<td><?= $game['attendance']; ?></td>
@@ -21,13 +22,37 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td colspan="4"><?php var_dump($game['images']) ?></td>
+				<td colspan="4">
+					<?php foreach($game['images'] as $picture): ?>
+						<a href="<?= $picture['url'] ?>" data-lightbox="lb21"><img src="<?= $picture['thumbnail'] ?>" /></a>
+					<?php endforeach; ?>
+				</td>
 			</tr>
 	<?php endforeach; ?>
 		<tbody>
 	</table>
-<?php
-//var_dump();
-?>
+</div>
+-->
+<div class="szene-list">
+	<?php foreach($this->games as $game): ?>
+		<?php $lbid = 'lb_'.uniqid(); ?>
+	<div class="item block first even filter_web">
+		<div class="szene-list-inside">
+			<div class="content">
+				<div class="teaser"><p>
+					<?= $this->parseDate("d.m.Y", $game['gamedate']); ?><br>
+					<strong><?= $game['game']; ?></strong><br>
+					<?= $game['result']; ?><br>
+					<?= $game['attendance']; ?> Zuschauer davon <?= $game['awayfans']; ?> Gästefans
+				</p></div>		</div>
+			<div class="images_container">
+				<?php foreach($game['images'] as $picture): ?>
+					<a href="<?= $picture['url'] ?>" data-lightbox="<?= $lbid ?>"><img src="<?= $picture['thumbnail'] ?>" /></a>
+				<?php endforeach; ?>
+
+			</div>
+		</div>
+	</div>
+	<?php endforeach; ?>
 </div>
 <?php $this->endblock(); ?>

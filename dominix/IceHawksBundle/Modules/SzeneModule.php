@@ -40,7 +40,7 @@ class SzeneModule extends Module {
 			$season = IceHawksGames::generateSeasonByAlias(\Input::get('items'));
 		}
 		$games = IceHawksGames::findAll(array (
-	    'order'   => ' gamedate DESC',
+	    'order'   => ' gamedate ASC',
 	    'column'  => array('season=?'),
 	    'value'   => array($season)
 	  ));
@@ -56,7 +56,42 @@ class SzeneModule extends Module {
 		foreach($games->fetchAll() as $k => $g) {
 			$gameArray[$k] = $g;
 			$multiSRC = \StringUtil::deserialize($g['pictures']);
-			$gameArray[$k]['images'] = \FilesModel::findMultipleByUuids($multiSRC);
+			$files = \FilesModel::findByPid($multiSRC, array('order' => 'name'));
+			if(is_null($files)) {
+				$files = \FilesModel::findMultipleByUuids($multiSRC);
+			}
+			foreach($files as $image) {
+				$gameArray[$k]['images'][] = array(
+					'thumbnail' => \Image::get($image->path, 120, 120, 'center_center'),
+					'url' => $image->path,
+					'uuid' => $image->uuid
+				);
+			}
+
+			//sort images:
+			$tmp = \StringUtil::deserialize($g['orderSRC']);
+			if (!empty($tmp) && \is_array($tmp))
+			{
+				// Remove all values
+				$arrOrder = array_map(function () {}, array_flip($tmp));
+				// Move the matching elements to their position in $arrOrder
+				foreach ($gameArray[$k]['images'] as $k2=>$v)
+				{
+					if (array_key_exists($v['uuid'], $arrOrder))
+					{
+						$arrOrder[$v['uuid']] = $v;
+						unset($gameArray[$k]['images'][$k2]);
+					}
+				}
+				// Append the left-over images at the end
+				if (!empty($gameArray[$k]['images']))
+				{
+					$arrOrder = array_merge($arrOrder, array_values($gameArray[$k]['images']));
+				}
+				// Remove empty (unreplaced) entries
+				$gameArray[$k]['images'] = array_values(array_filter($arrOrder));
+				unset($arrOrder);
+			}
 		}
 
 		$this->Template->games = $gameArray;
