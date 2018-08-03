@@ -13,3 +13,4 @@
  * Back end modules
  */
 $GLOBALS['TL_LANG']['MOD']['ih_szene'] = array('Szene', 'Szene im Blick.');
+$GLOBALS['TL_LANG']['MOD']['ice_hawks'] = array('Ice-Hawks', 'Szene im Blick.');
