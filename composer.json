@@ -9,6 +9,12 @@
             "homepage": "https://github.com/dominixdesign"
         }
     ],
+		"require-dev": {
+			"contao/manager-plugin": "^2.0"
+		},
+		"conflict": {
+			"contao/manager-plugin": "<2.0 || >=3.0"
+		},
     "extra": {
         "contao-manager-plugin": "dominix\\IceHawksBundle\\ContaoManager\\Plugin"
     },
