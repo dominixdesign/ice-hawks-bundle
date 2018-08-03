@@ -9,7 +9,8 @@
  * file that was distributed with this source code.
  */
 
- namespace Contao\NewsBundle\ContaoManager;
+ namespace Contao\IceHawksBundle\ContaoManager;
+ 
  use Contao\CoreBundle\ContaoCoreBundle;
  use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
  use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
