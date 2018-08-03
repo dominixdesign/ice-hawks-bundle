@@ -9,11 +9,6 @@
             "homepage": "https://github.com/dominixdesign"
         }
     ],
-    "require": {
-        "php": "^7.1",
-        "contao/core-bundle": "self.version",
-        "symfony/framework-bundle": "^3.4 || ^4.0"
-    },
     "extra": {
         "contao-manager-plugin": "dominix\\IceHawksBundle\\ContaoManager\\Plugin"
     },
