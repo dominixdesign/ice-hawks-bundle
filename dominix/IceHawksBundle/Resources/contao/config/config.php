@@ -10,11 +10,12 @@
  */
 
 /* Backend Module */
-$GLOBALS['BE_MOD']['ice_hawks'] = array(
+array_insert($GLOBALS['BE_MOD']['content'], 1, array
+(
 	'ih_szene' => array(
 		'tables' => array('tl_ih_games')
 	)
-);
+));
 
 $GLOBALS['TL_MODELS']['tl_ih_games'] = '\dominix\IceHawksBundle\Models\IceHawksGames';
 
