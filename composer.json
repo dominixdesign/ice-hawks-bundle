@@ -1,0 +1,34 @@
+{
+    "name": "dominix/ice-hawks-bundle",
+    "type": "contao-bundle",
+    "description": "Adds ih94 specific functionality to Contao 4",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Dominik Sander",
+            "homepage": "https://github.com/dominixdesign"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "contao/core-bundle": "self.version",
+        "symfony/framework-bundle": "^3.4 || ^4.0"
+    },
+    "extra": {
+        "contao-manager-plugin": "dominix\\IceHawksBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "dominix\\IceHawksBundle\\": "dominix/IceHawksBundle/"
+        },
+        "classmap": [
+            "dominix/IceHawksBundle/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "dominix/IceHawksBundle/Resources/contao/config/",
+            "dominix/IceHawksBundle/Resources/contao/dca/",
+            "dominix/IceHawksBundle/Resources/contao/languages/",
+            "dominix/IceHawksBundle/Resources/contao/templates/"
+        ]
+    }
+}

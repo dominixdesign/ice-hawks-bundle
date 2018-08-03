@@ -1,0 +1,20 @@
+.szene-list .item {
+	border-top: 1px solid rgb(220,220,220);
+	width: 100%;
+}
+.szene-list .szene-list-inside {
+    display: table;
+    width: 100%;
+}
+.szene-list-inside .content {
+	width: 40%;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 30px;
+	background: rgb(255,255,255);
+}
+.szene-list-inside .image_container {
+	width: 60%;
+	display: table-cell;
+	overflow: hidden;
+}
