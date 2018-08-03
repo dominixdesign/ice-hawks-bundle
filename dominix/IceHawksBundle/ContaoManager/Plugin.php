@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
- namespace Contao\IceHawksBundle\ContaoManager;
- 
+ namespace dominix\IceHawksBundle\ContaoManager;
+
  use Contao\CoreBundle\ContaoCoreBundle;
  use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
  use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
  use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
- use Contao\IceHawksBundle\IceHawksBundle;
+ use dominix\IceHawksBundle\IceHawksBundle;
 
  class Plugin implements BundlePluginInterface
  {
