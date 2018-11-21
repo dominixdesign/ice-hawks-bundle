@@ -40,7 +40,7 @@ class SzeneModule extends Module {
 			$season = IceHawksGames::generateSeasonByAlias(\Input::get('items'));
 		}
 		$games = IceHawksGames::findAll(array (
-	    'order'   => ' gamedate ASC',
+	    'order'   => ' gamedate DESC',
 	    'column'  => array('season=?'),
 	    'value'   => array($season)
 	  ));
